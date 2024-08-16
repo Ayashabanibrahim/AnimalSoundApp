@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:id="@+id/tol_bar"
+            android:elevation="4dp"
+            android:background="#327606"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_container">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/host_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:navGraph="@navigation/mynavigation"
+                />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        app:itemIconTint="#327606"
+        app:itemTextColor="#327606"/>
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

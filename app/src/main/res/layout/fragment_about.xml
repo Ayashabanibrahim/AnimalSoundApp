@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".AboutFragment">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_gravity="top"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/img_4"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:fontFamily="@font/adlam_display"
+        android:textColor="@color/white"
+        android:text="At Animal Sound App, we are passionate about bringing the enchanting world of animal sounds right to your fingertips. Our app is a gateway to the diverse and captivating sounds of the animal kingdom, designed to educate, entertain, and inspire a deep appreciation for wildlife."/>
+
+
+
+
+</LinearLayout>

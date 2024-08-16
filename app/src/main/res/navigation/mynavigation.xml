@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mynavigation"
+    app:startDestination="@id/firstkFragment">
+
+    <fragment
+        android:id="@+id/firstkFragment"
+        android:name="com.example.project.FirstkFragment"
+        android:label="fragment_firstk"
+        tools:layout="@layout/fragment_firstk" >
+        <action
+            android:id="@+id/action_firstkFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstkFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.project.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.project.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.project.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/favFragment"
+        android:name="com.example.project.FavFragment"
+        android:label="fragment_fav"
+        tools:layout="@layout/fragment_fav" />
+</navigation>
