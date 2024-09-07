@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MenuItem
@@ -29,17 +30,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         drawerLayout = binding.main
-
+        setStatusBarColor(("#327606"))
         val toolbar = binding.tolBar
         setSupportActionBar(toolbar)
         val navigationView = binding.navView
-        navigationView.setNavigationItemSelectedListener(this)
 
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         // إعداد الـ NavController للتنقل بين الـ Fragments
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(navigationView, navController)
@@ -50,36 +51,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home -> {
+                 this.supportActionBar?.title="Sound Animal"
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2=null
-                navigateToDestination(R.id.firstkFragment)
+                navigateToDestination(R.id.homeFragment)
             }
             R.id.nav_animal -> {
+                supportActionBar?.title=null
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2 = null
-                navigateToDestination(R.id.secondFragment)
+                navigateToDestination(R.id.animalFragment)
             }
             R.id.nav_birds -> {
+                supportActionBar?.title=null
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2 = null
-                navigateToDestination(R.id.thirdFragment)
+                navigateToDestination(R.id.birdFragment)
             }
             R.id.nav_fav -> {
+                supportActionBar?.title=null
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2 = null
                 navigateToDestination(R.id.favFragment)
             }
             R.id.nav_about -> {
+                supportActionBar?.title=null
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2 = null
                 navigateToDestination(R.id.aboutFragment)
             }
             R.id.nav_exit -> {
+                supportActionBar?.title=null
                 mediaPlayer2?.stop()
                 mediaPlayer2?.release()
                 mediaPlayer2 = null
@@ -92,10 +99,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+
     private fun navigateToDestination(destinationId: Int) {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.navigate(destinationId)
+    }
+    private fun setStatusBarColor(color: String) {
+            window.statusBarColor = Color.parseColor(color)
     }
 
 }

@@ -9,11 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AnimlAdapter (val nameAnimal:Array<String>,val imageAnimal:Array<Int>,val soundAnimal:Array<Int>,val favAnimal:Array<Boolean>):RecyclerView.Adapter<AnimlAdapter.MyViewHolder>(){
+class AnimlAdapter (val nameAnimal:Array<String>, val imageAnimal:Array<Int>, val soundAnimal:Array<Int>, val favAnimal:Array<Boolean>):RecyclerView.Adapter<AnimlAdapter.MyViewHolder>(){
     class MyViewHolder(view:View):RecyclerView.ViewHolder(view){
-       val txtAnim=view.findViewById<TextView>(R.id.animal_name)
-        val imgAnim=view.findViewById<ImageView>(R.id.animal_image)
-        val favAnim=view.findViewById<CheckBox>(R.id.animal_fav)
+       val txtAnim=view.findViewById<TextView>(R.id.item_name)
+        val imgAnim=view.findViewById<ImageView>(R.id.item_image)
+        val favAnim=view.findViewById<CheckBox>(R.id.item_check)
 
     }
 
@@ -28,6 +28,7 @@ class AnimlAdapter (val nameAnimal:Array<String>,val imageAnimal:Array<Int>,val 
         holder.imgAnim.setImageResource(imageAnimal[position])
         //val iconResource=if(favAnimal[position]) R.drawable.baseline_favorite_24
        // else R.drawable.favorite_24
+        holder.favAnim.setOnCheckedChangeListener(null)
          holder.favAnim.isChecked=favAnimal[position]
         holder.favAnim.setOnCheckedChangeListener{
             buttonView,isCheced ->

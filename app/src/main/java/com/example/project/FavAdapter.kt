@@ -10,16 +10,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class FavAdapter(
-    val nameAnimal: MutableList<String>,
-    val imageAnimal: MutableList<Int>,
-    val soundAnimal: MutableList<Int>,
-    val favAnimal: MutableList<Boolean>
+    val favItemName: MutableList<String>,
+    val favItemImage: MutableList<Int>,
+    val favItemSound: MutableList<Int>,
+    val myItemsFav: MutableList<Boolean>
 ):
     RecyclerView.Adapter<FavAdapter.ViewHolder>(){
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val txtAnim=view.findViewById<TextView>(R.id.animal_name)
-        val imgAnim=view.findViewById<ImageView>(R.id.animal_image)
-        val favAnim=view.findViewById<CheckBox>(R.id.animal_fav)
+        val favItemText=view.findViewById<TextView>(R.id.item_name)
+        val favItemImg=view.findViewById<ImageView>(R.id.item_image)
+        val myFavItem=view.findViewById<CheckBox>(R.id.item_check)
 
     }
 
@@ -30,20 +30,20 @@ class FavAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txtAnim.text=nameAnimal[position]
-        holder.imgAnim.setImageResource(imageAnimal[position])
-       holder.favAnim.isChecked=favAnimal[position]
+        holder.favItemText.text=favItemName[position]
+        holder.favItemImg.setImageResource(favItemImage[position])
+       holder.myFavItem.isChecked=myItemsFav[position]
 
-        holder.imgAnim.setOnClickListener {
+        holder.favItemImg.setOnClickListener {
             mediaPlayer2?.stop()
             mediaPlayer2?.release()
-            val mediaPlayer = MediaPlayer.create(holder.itemView.context, soundAnimal[position])
+            val mediaPlayer = MediaPlayer.create(holder.itemView.context, favItemSound[position])
             mediaPlayer.start()
             mediaPlayer2 = mediaPlayer
         }
 
     }
     override fun getItemCount(): Int {
-        return nameAnimal.size
+        return favItemName.size
     }
 }

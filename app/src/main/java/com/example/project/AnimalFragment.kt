@@ -6,18 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.project.databinding.FragmentSecondBinding
+import com.example.project.databinding.FragmentAnimalBinding
 
-class SecondFragment : Fragment() {
-    lateinit var binding: FragmentSecondBinding
+class AnimalFragment : Fragment() {
+    lateinit var binding: FragmentAnimalBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        binding=FragmentSecondBinding.inflate(layoutInflater)
+        binding= FragmentAnimalBinding.inflate(layoutInflater)
       val view= binding.root
-
         animalImage= arrayOf(
             R.drawable.img_2,
             R.drawable.img_6,
@@ -75,6 +73,11 @@ class SecondFragment : Fragment() {
         animalRecyclerView.layoutManager=LinearLayoutManager(requireContext())
         return view
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as MainActivity).supportActionBar?.title="Sound Animal"
     }
 
 

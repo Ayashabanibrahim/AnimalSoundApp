@@ -6,17 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.project.databinding.FragmentThirdBinding
+import com.example.project.databinding.FragmentBirdBinding
 
 
-class ThirdFragment : Fragment() {
-   lateinit var binding: FragmentThirdBinding
+
+class BirdFragment : Fragment() {
+   lateinit var binding: FragmentBirdBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       binding=FragmentThirdBinding.inflate(layoutInflater)
+       binding=FragmentBirdBinding.inflate(layoutInflater)
         birdName= arrayOf(
             "Parrot",
             "Raven",
@@ -75,6 +76,11 @@ class ThirdFragment : Fragment() {
         animalRecyclerView.adapter=birdAdapter
         animalRecyclerView.layoutManager= LinearLayoutManager(requireContext())
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as MainActivity).supportActionBar?.title="Sound Animal"
     }
 
 

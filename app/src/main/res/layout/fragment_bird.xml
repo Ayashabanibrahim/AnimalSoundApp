@@ -7,18 +7,19 @@
     android:orientation="vertical"
     android:background="@drawable/img_3"
     android:weightSum="4"
-    tools:context=".ThirdFragment">
+    tools:context=".BirdFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
-        android:paddingLeft="20dp"
-        android:text="Birds Sound"
+        android:text="Birds"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:fontFamily="@font/adlam_display"
+        android:fontFamily="@font/adamina"
         android:textColor="@color/white"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bird_recy"
